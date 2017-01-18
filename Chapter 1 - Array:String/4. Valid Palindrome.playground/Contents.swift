@@ -6,24 +6,48 @@
  Example Questions Candidate Might Ask:
  Q: What about an empty string? Is it a valid palindrome?
  A: For the purpose of this problem, we define empty string as valid palindrome.
+ 
+ Link: https://oj.leetcode.com/problems/valid-palindrome/
  */
 
 import Foundation
 
-func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-    // Reduce the runtime complexity of searching a value using a dictionary that maps a value to its index
-    var res = [Int]()
-    var dict = [Int: Int]()
-    for i in 0..<nums.count {
-        let x = nums[i]
-        if dict[target - x]  != nil { // The number matching the difference value has been saved in the dictionary already
-            res = [dict[target - x]! + 1, i + 1]
+class Solution {
+    func isPalindrome (_ s: String) -> Bool {
+        let chars = Array(s.lowercased().characters)
+        var i = 0
+        var j = chars.count - 1
+        
+        while i < j {
+            while i < j && !isAlphanumeric(chars[i]) {
+                i += 1
+            }
+            while i < j && !isAlphanumeric(chars[j]) {
+                j -= 1
+            }
+            if chars[i] != chars[j] {
+                return false
+            }
+            i += 1
+            j -= 1
         }
-        dict[x] = i // dict.updateValue(i, forKey:x), [key, value] -> [x, i]
+        return true
     }
-    return res
+    
+    private func isAlphanumeric(_ char: Character) -> Bool {
+        guard let char = String(char).unicodeScalars.first else {
+            fatalError("Character is invalid") // return !String(char).isEmpty && String(char).range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+        }
+        return CharacterSet.alphanumerics.contains(char)
+    }
 }
 
-let nums: [Int] = [13, 3, 5, 7, 18]
-let target: Int = 8
-print(twoSum(nums, target))
+let obj = Solution()
+let s1 = "A man, a plan, a canal: Panama"
+let s2 = "race a car"
+let s3 = ""
+obj.isPalindrome(s1)
+obj.isPalindrome(s2)
+obj.isPalindrome(s3)
+
+
