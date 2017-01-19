@@ -49,5 +49,3 @@ let s3 = ""
 obj.isPalindrome(s1)
 obj.isPalindrome(s2)
 obj.isPalindrome(s3)
-
-
