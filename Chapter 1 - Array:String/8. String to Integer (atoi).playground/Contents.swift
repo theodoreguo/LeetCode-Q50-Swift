@@ -14,13 +14,13 @@ import Foundation
 class Solution {
     func myAtoi(_ str: String) -> Int {
         var res = 0
-        var flag = 1
+        var sign = 1
         var index = 0
+        let content = Array(str.characters)
         let intMax = 2147483647
         let intMin = -2147483648
         
-        // Trim
-        let content = [Character](str.characters)
+        // Trim spaces
         while index < content.count {
             guard content[index] == " " else {
                 break
@@ -31,14 +31,15 @@ class Solution {
             return res
         }
         
-        // Flag dispose
+        // Sign dispose
         if content[index] == "-" {
-            flag = -1
+            sign = -1
             index += 1
         } else if content[index] == "+" {
             index += 1
         }
         
+        // Boundary value handling
         while index < content.count {
             guard isDigit(content[index]) else {
                 break
@@ -47,9 +48,9 @@ class Solution {
             res = res * 10 + Int(String(content[index]))!
             
             if res >= intMax {
-                if flag == 1 {
+                if sign == 1 {
                     return intMax
-                } else if res > intMax && flag == -1 {
+                } else if res > intMax && sign == -1 {
                     return intMin
                 }
             }
@@ -57,7 +58,7 @@ class Solution {
             index += 1
         }
         
-        return flag * res
+        return sign * res
     }
     
     private func isDigit(_ char: Character) -> Bool {
@@ -65,10 +66,10 @@ class Solution {
     }
 }
 
-//let obj = Solution()
-//let s1 = "A man, a plan, a canal: Panama"
-//let s2 = "race a car"
-//let s3 = ""
-//obj.isPalindrome(s1)
-//obj.isPalindrome(s2)
-//obj.isPalindrome(s3)
+let obj = Solution()
+let s1 = " -3647804 790 9"
+let s2 = "race a car7"
+let s3 = "64rd9"
+obj.myAtoi(s1)
+obj.myAtoi(s2)
+obj.myAtoi(s3)
