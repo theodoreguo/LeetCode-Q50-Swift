@@ -8,26 +8,40 @@
 import Foundation
 
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public var val: Int
- *     public var next: ListNode?
- *     public init(_ val: Int) {
- *         self.val = val
- *         self.next = nil
- *     }
- * }
+ Definition for singly-linked list
  */
-class Solution {
-    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        
+public class ListNode {
+    public var val: Int
+    public var next: ListNode?
+    public init(_ val: Int) {
+        self.val = val
+        self.next = nil
     }
 }
 
-//let obj = Solution()
-//let a1 = [9, 9, 9, 9, 9]
-//let a2 = [1, 0, 0]
-//let a3 = [8, 7, 5]
-//obj.mergeTwoLists(a1)
-//obj.mergeTwoLists(a2)
-//obj.mergeTwoLists(a3)
+class Solution {
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var l1 = l1
+        var l2 = l2
+        // Insert a dummy head before the new list to avoid initializing the new list’s head, etc. Then the new list’s head could just easily be returned as dummy head’s next node.
+        let dummyHead = ListNode.init(0)
+        var p = dummyHead
+        while l1 != nil && l2 != nil {
+            if l1!.val < l2!.val {
+                p.next = l1
+                l1 = l1!.next
+            } else {
+                p.next = l2!
+                l2 = l2!.next
+            }
+            p = p.next!
+        }
+        if l1 != nil { // i.e., p.next = l1 ?? l2
+            p.next = l1
+        }
+        if l2 != nil {
+            p.next = l2
+        }
+        return dummyHead.next
+    }
+}
