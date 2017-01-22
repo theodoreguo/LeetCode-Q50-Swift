@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- Definition for singly-linked list with a random pointer.
+ Definition for singly-linked list with a random pointer
  */
 public class RandomListNode {
     public var label: Int
