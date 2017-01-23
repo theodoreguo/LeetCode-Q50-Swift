@@ -65,3 +65,37 @@ class Solution {
         return root
     }
 }
+
+/**
+ O(n) runtime, O(log n) stack space – Bottom-up recursion
+ */
+class Solution2 {
+    private var list: ListNode?
+    
+    func sortedListToBST(_ head: ListNode?) -> TreeNode? {
+        guard head != nil else {
+            return nil
+        }
+        var n = 0
+        var p = head
+        while p != nil {
+            p = p!.next
+            n += 1
+        }
+        list = head!
+        return sortedListToBST(0, n - 1)
+    }
+    
+    private func sortedListToBST(_ start: Int, _ end: Int) -> TreeNode? {
+        guard start <= end else {
+            return nil
+        }
+        let mid = (start + end) / 2
+        let leftChild = sortedListToBST(start, mid - 1)
+        let parent = TreeNode(list!.val)
+        parent.left = leftChild
+        list = list!.next
+        parent.right = sortedListToBST(mid + 1, end)
+        return parent
+    }
+}
