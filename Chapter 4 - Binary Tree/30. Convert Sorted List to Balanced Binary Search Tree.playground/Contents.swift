@@ -37,33 +37,31 @@ public class TreeNode {
     }
 }
 
+/**
+ It's recursive BST construction using slow-fast traversal on the linked list to get the middle element and make that the root. Left side of the list forms left sub-tree and right side of the middle element forms the right sub-tree.
+ */
 class Solution {
-    private var list = ListNode(0)
-    
     func sortedListToBST(_ head: ListNode?) -> TreeNode? {
         guard head != nil else {
             return nil
         }
-        var n = 0
-        var p = head
-        while p != nil {
-            p = p!.next
-            n += 1
+        var head = head
+        var fast = head
+        var slow = head
+        var prev: ListNode? = nil
+        while fast != nil && fast!.next != nil {
+            fast = fast!.next!.next
+            prev = slow
+            slow = slow!.next
         }
-        list = head!
-        return sortedListToBST(0, n - 1)
-    }
-    
-    private func sortedListToBST(_ start: Int, _ end: Int) -> TreeNode? {
-        guard start <= end else {
-            return nil
+        let root = TreeNode(slow!.val)
+        if prev != nil {
+            prev?.next = nil
+        } else {
+            head = nil
         }
-        let mid = (start + end) / 2
-        let leftChild = sortedListToBST(start, mid - 1)
-        let parent = TreeNode(list.val)
-        parent.left = leftChild
-        list = list.next!
-        parent.right = sortedListToBST(mid + 1, end)
-        return parent
+        root.left = sortedListToBST(head)
+        root.right = sortedListToBST(slow!.next)
+        return root
     }
 }
