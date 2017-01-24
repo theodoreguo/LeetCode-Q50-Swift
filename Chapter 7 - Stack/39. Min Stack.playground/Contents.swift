@@ -1,10 +1,10 @@
 /**
  Question:
  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-    push(x) – Push element x onto stack.
-    pop() – Removes the element on top of the stack.
-    top() – Get the top element.
-    getMin() – Retrieve the minimum element in the stack.
+ push(x) – Push element x onto stack.
+ pop() – Removes the element on top of the stack.
+ top() – Get the top element.
+ getMin() – Retrieve the minimum element in the stack.
  
  Example:
  MinStack minStack = new MinStack();
@@ -27,29 +27,29 @@ import Foundation
 
 /**
  Swift stack definition, reference: https://github.com/raywenderlich/swift-algorithm-club/blob/master/Stack/Stack.playground/Contents.swift
-
+ 
  public struct Stack<T> {
-    fileprivate var array = [T]()
+ fileprivate var array = [T]()
  
-    public var isEmpty: Bool {
-        return array.isEmpty
-    }
+ public var isEmpty: Bool {
+ return array.isEmpty
+ }
  
-    public var count: Int {
-        return array.count
-    }
+ public var count: Int {
+ return array.count
+ }
  
-    public mutating func push(_ element: T) {
-        array.append(element)
-    }
+ public mutating func push(_ element: T) {
+ array.append(element)
+ }
  
-    public mutating func pop() -> T? {
-        return array.popLast()
-    }
+ public mutating func pop() -> T? {
+ return array.popLast()
+ }
  
-    public var top: T? {
-        return array.last
-    }
+ public var top: T? {
+ return array.last
+ }
  }
  */
 struct Stack {
