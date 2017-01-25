@@ -26,4 +26,3 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 let nums: [Int] = [13, 3, 5, 7, 18]
 let target: Int = 8
 print(twoSum(nums, target))
-
