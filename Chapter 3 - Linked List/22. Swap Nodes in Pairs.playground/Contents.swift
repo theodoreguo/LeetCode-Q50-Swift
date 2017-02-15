@@ -34,6 +34,8 @@ public class ListNode {
  The above operations transform the list from {p -> q -> r -> s} to {q -> p -> r -> s}. 
  If the next pair of nodes exists, we should remember to connect p’s next to s. 
  Therefore, we should record the current node before advancing to the next pair of nodes.
+ 
+ To determine the new list’s head, you look at if the list contains two or more elements. Basically, these extra conditional statements could be avoided by inserting an extra node (also known as the dummy head) to the front of the list.
  */
 class Solution {
     func swapPairs(_ head: ListNode?) -> ListNode? {

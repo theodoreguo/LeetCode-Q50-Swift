@@ -31,7 +31,7 @@ class Solution {
                 p.next = l1
                 l1 = l1!.next
             } else {
-                p.next = l2!
+                p.next = l2
                 l2 = l2!.next
             }
             p = p.next!
