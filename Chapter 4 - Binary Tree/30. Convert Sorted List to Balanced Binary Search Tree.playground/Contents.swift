@@ -68,6 +68,8 @@ class Solution {
 
 /**
  O(n) runtime, O(log n) stack space – Bottom-up recursion
+ Note that the algorithm requires the list’s length to be passed in as the function’s parameters. The
+ list’s length could be found in O(n) time by traversing the entire list’s once. The recursive calls traverse the list and create tree’s nodes by the list’s order, which also takes O(n) time. Therefore, the overall run time complexity is still O(n).
  */
 class Solution2 {
     private var list: ListNode?

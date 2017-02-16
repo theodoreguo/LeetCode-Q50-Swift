@@ -5,7 +5,7 @@
  where the original right nodes turned into left leaf nodes. Return the new root.
  
  For example:
- Given a binary tree {1, 2, 3, 4, 5},
+ Given a binary tree [1, 2, 3, 4, 5],
      1
     / \
    2   3
@@ -41,8 +41,8 @@ public class TreeNode {
 }
 
 /**
- Top down approach:
- We need to be very careful when reassigning current node’s left and right children. Besides making a copy of the parent node, you would also need to make a copy of the parent’s right child too. The reason is the current node becomes the parent node in the next iteration.
+ Top-down approach:
+ We need to be very careful when reassigning current node’s left and right children. Besides making a copy of the parent node, you would also need to make a copy of the parent’s right child, too. The reason is the current node becomes the parent node in the next iteration.
  */
 class Solution {
     func upsideDownBinaryTree(_ root: TreeNode?) -> TreeNode? {
@@ -62,7 +62,7 @@ class Solution {
 }
 
 /**
- Bottom up approach:
+ Bottom-up approach:
  If we reassign the bottom-level nodes before the upper ones, we won’t have to make copies and worry about overwriting something. We know the new root will be the left-most leaf node, so we begin the reassignment here.
  */
 class Solution2 {

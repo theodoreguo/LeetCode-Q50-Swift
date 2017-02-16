@@ -12,6 +12,23 @@
  Return 6.
  
  Link: https://oj.leetcode.com/problems/binary-tree-maximum-path-sum/
+ 
+ 
+ Example Questions Candidate Might Ask:
+ Q: What if the tree is empty?
+ A: Assume the tree is non-empty.
+ Q: How about a tree that contains only a single node?
+ A: Then the maximum path sum starts and ends at the same node.
+ Difficulty: Hard, Frequency: Medium
+ Q: What if every node contains negative value?
+ A: Then you should return the single node value that is the least negative.
+ Q: Does the maximum path have to go through the root node?
+ A: Not necessarily. For example, the below tree yield 6 as the maximum path sum and does not go through root.
+     -5
+     / \
+    2   3
+   / \
+ -1   4
  */
 
 import Foundation
