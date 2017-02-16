@@ -22,6 +22,9 @@ public class TreeNode {
     }
 }
 
+/**
+ Top-down recursion
+ */
 class Solution {
     func isBalanced(_ root: TreeNode?) -> Bool {
         if root == nil {
