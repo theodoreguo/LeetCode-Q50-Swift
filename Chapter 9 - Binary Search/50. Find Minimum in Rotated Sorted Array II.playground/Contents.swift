@@ -4,8 +4,7 @@
  What if duplicates are allowed?
  Would this affect the run-time complexity? How and why?
  
- Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
- (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+ Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
  Find the minimum element.
  The array may contain duplicates.
  
@@ -15,7 +14,7 @@
 import Foundation
 
 /**
- For case where Al == Am == Ar, the minimum could be on Am’s left or right side (eg, [1, 1, 1, 0, 1] or [1, 0, 1, 1, 1]). In this case, we could not discard either subarrays and therefore such worst case degenerates to the order of O(n).
+ For case where Al == Am == Ar, the minimum could be on Am’s left or right side (e.g., [1, 1, 1, 0, 1] or [1, 0, 1, 1, 1]). In this case, we could not discard either subarrays and therefore such worst case degenerates to the order of O(n).
  */
 class Solution {
     func findMin(_ nums: [Int]) -> Int {

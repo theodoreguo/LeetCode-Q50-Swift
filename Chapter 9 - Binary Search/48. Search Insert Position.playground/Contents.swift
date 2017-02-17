@@ -16,6 +16,7 @@ import Foundation
 
 /**
  It's a direct application of Binary Search, as the keywords sorted and finding target can be spotted easily.
+ When the while loop ends, l must be equal to r and it is a valid index.
  If nums[l] is greater than target, that means we are inserting target before nums[l], so we return l. If nums[l] is less than target, that means we insert target after nums[l], so we return l + 1.
  */
 class Solution {

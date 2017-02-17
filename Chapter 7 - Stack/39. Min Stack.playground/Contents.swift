@@ -29,51 +29,60 @@ import Foundation
  Swift stack definition, reference: https://github.com/raywenderlich/swift-algorithm-club/blob/master/Stack/Stack.playground/Contents.swift
  
  public struct Stack<T> {
- fileprivate var array = [T]()
+    fileprivate var array = [T]()
  
- public var isEmpty: Bool {
- return array.isEmpty
- }
+    public var isEmpty: Bool {
+        return array.isEmpty
+    }
  
- public var count: Int {
- return array.count
- }
+    public var count: Int {
+        return array.count
+    }
  
- public mutating func push(_ element: T) {
- array.append(element)
- }
+    public mutating func push(_ element: T) {
+        array.append(element)
+    }
  
- public mutating func pop() -> T? {
- return array.popLast()
- }
+    public mutating func pop() -> T? {
+        return array.popLast()
+    }
  
- public var top: T? {
- return array.last
- }
+    public var top: T? {
+        return array.last
+    }
  }
  */
 struct Stack {
     var items = [Int]()
+    
     public var isEmpty: Bool {
         return items.isEmpty
     }
+    
     mutating func push(_ item: Int) {
         items.append(item)
     }
+    
     mutating func pop() -> Int {
         return items.removeLast()
     }
+    
     var top: Int? {
         return items.last
     }
 }
 
+/**
+ Use an extra stack to keep track of the current minimum value. During the push operation we choose the new element or the current minimum, whichever that is smaller to push onto the min stack.
+  If a new element is larger than the current minimum, we do not need to push it on to the min stack. When we perform the pop operation, check if the popped element is the same as the current minimum. If it is, pop it off the min stack too.
+ For the pop operation, we would pop from both stacks. getMin() is then reflected by the top element of min stack.
+ */
 class MinStack {
     var stack = Stack()
     var minStack = Stack()
     
     func push(_ x: Int) {
-        stack.push(x);
+        stack.push(x)
         if minStack.isEmpty || x <= minStack.top! {
             minStack.push(x)
         }
@@ -102,7 +111,6 @@ class MinStack {
  let param_1 = obj.top()
  let param_2 = obj.getMin()
  */
-
 let obj = MinStack()
 obj.push(-2)
 obj.push(0)

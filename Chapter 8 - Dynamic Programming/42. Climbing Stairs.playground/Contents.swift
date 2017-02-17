@@ -41,10 +41,30 @@ class Solution {
     }
 }
 
+class Solution2 {
+    public func climbStairs(_ n: Int) -> Int {
+        if n == 1 {
+            return 1
+        }
+
+        var p = 1, q = 1
+        for _ in 2...n {
+            let temp = q
+            q += p
+            p = temp
+        }
+        return q
+    }
+}
+
 let obj = Solution()
+let obj2 = Solution2()
 let n1 = 1
 let n2 = 2
 let n3 = 6
 obj.climbStairs(n1)
 obj.climbStairs(n2)
 obj.climbStairs(n3)
+obj2.climbStairs(n1)
+obj2.climbStairs(n2)
+obj2.climbStairs(n3)
