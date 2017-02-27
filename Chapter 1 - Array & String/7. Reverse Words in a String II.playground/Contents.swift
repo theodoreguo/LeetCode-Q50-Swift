@@ -24,7 +24,7 @@ class Solution {
     }
     
     private func reverse(_ chars: inout [Character], _ start: Int, _ end: Int) {
-        for i in 0..<(end - start) / 2 {
+        for i in 0 ..< (end - start) / 2 {
             let temp = chars[start + i]
             chars[start + i] = chars[end - i - 1]
             chars[end - i - 1] = temp

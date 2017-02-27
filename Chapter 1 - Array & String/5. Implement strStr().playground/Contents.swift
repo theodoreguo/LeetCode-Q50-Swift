@@ -1,6 +1,6 @@
 /**
  Question:
- Implement strsStr().
+ Implement strStr().
  Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
  
  Link: https://oj.leetcode.com/problems/implement-strstr/
@@ -16,13 +16,13 @@ class Solution {
         for i in 0...hChars.count {
             for j in 0...nChars.count {
                 if j == nChars.count {
-                    return i
+                    return i // Looping through needle done
                 }
                 if i + j == hChars.count {
-                    return -1
+                    return -1 // needle’s length is greater than haystack’s length or no match
                 }
                 if (nChars[j] != hChars[i + j]) {
-                    break
+                    break // Encounter non-matched character, break to next loop
                 }
             }
         }

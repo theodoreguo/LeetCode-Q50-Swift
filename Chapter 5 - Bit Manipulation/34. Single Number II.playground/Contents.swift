@@ -39,7 +39,7 @@ class Solution {
  Given an array of integers, every element appears k times except for one. Find that single one who appears l times.
  
  We need a array x[i] with size k for saving the bits appears i times.
- For every input number a, generate the new counter by x[j] = (x[j-1] & a) | (x[j] & ~a).
+ For every input number a, generate the new counter by x[j] = (x[j - 1] & a) | (x[j] & ~a).
  Except x[0] = (x[k] & a) | (x[0] & ~a).
  
  In the equation, the first part indicates the the carries from previous one.

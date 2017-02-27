@@ -5,6 +5,9 @@
 
 import Foundation
 
+/**
+ O(n log n) runtime, O(1) space – Binary search
+ */
 class Solution {
     private func binarySearch(_ a: [Int], _ key: Int, _ start: Int) -> Int {
         var l = start, r = a.count - 1
@@ -30,6 +33,15 @@ class Solution {
     }
 }
 
+/**
+ O(n) runtime, O(1) space – Tow pointers
+ Let’s assume we have two indices pointing to the ith and jth elements, Ai and Aj respectively. The sum of Ai and Aj could only fall into one of these three possibilities:
+ i. Ai + Aj > target. Increasing i isn’t going to help us, as it makes the sum even
+ bigger. Therefore we should decrement j.
+ ii. Ai + Aj < target. Decreasing j isn’t going to help us, as it makes the sum even
+ smaller. Therefore we should increment i.
+ iii. Ai + Aj == target. We have found the answer.
+ */
 class Solution2 {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         var i = 0

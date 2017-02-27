@@ -23,6 +23,7 @@ class Solution {
             if abs(res) > 214748364 {
                 return 0
             }
+            
             res = res * 10 + n % 10
             n /= 10
         }

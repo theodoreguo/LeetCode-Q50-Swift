@@ -18,7 +18,7 @@ class Solution {
             return false
         }
         var div = 1
-        while x / div >= 10 { //  Getting and chopping the first digit dispose
+        while x / div >= 10 { // Getting and chopping the first digit dispose
             div *= 10
         }
         while x != 0 {

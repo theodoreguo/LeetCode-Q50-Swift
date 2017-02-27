@@ -3,7 +3,7 @@
  Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
  
  Hint:
- First, make sure you understand what a palindrome means. A palindrome is a string which reads the same in both directions. For example, “aba” is a palindome, “abc” is not.
+ First, make sure you understand what a palindrome means. A palindrome is a string which reads the same in both directions. For example, “aba” is a palindrome, “abc” is not.
  
  Link: https://oj.leetcode.com/problems/longest-palindromic-substring/
  */
@@ -11,6 +11,13 @@
 import Foundation
 
 class Solution {
+    /**
+     O(n2) runtime, O(1) space
+     In fact, we could solve it in O(n2) time using only constant space.
+     We observe that a palindrome mirrors around its center. Therefore, a palindrome can be expanded from its center, and there are only 2n – 1 such centers.
+     You might be asking why there are 2n – 1 but not n centers? The reason is the center of a palindrome can be in between two letters. Such palindromes have even number of letters (such as “abba”) and its center are between the two ‘b’s.
+     Since expanding a palindrome around its center could take O(n) time, the overall complexity is O(n2).
+     */
     func longestPalindrome(_ s: String) -> String {
         let chars = [Character](s.characters)
         var start = 0, end = 0
@@ -71,7 +78,7 @@ class Solution {
             }
         }
         
-        return String(sChars[maxStart...maxStart + maxLen - 1])
+        return String(sChars[maxStart ... maxStart + maxLen - 1])
     }
 }
 

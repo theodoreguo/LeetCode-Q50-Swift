@@ -6,7 +6,8 @@
  Example Questions Candidate Might Ask:
  Q: What if the given array is empty?
  A: Then you should return [“0->99”] as those ranges are missing.
- Q: What if the given array contains all elements from the ranges? A: Return an empty list, which means no range is missing.
+ Q: What if the given array contains all elements from the ranges? 
+ A: Return an empty list, which means no range is missing.
  */
 
 import Foundation

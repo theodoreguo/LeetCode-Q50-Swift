@@ -27,18 +27,22 @@ class Solution {
         while i < m && sChars[i] == tChars[i] {
             i += 1
         }
+        
         // Append operation
         if i == m {
             return shift > 0
         }
+        
         // Modify operation
         if shift == 0 {
             i += 1
         }
+        
         // Insert operation
         while i < m && sChars[i] == tChars[i + shift] {
             i += 1
         }
+        
         return i == m
     }
 }
