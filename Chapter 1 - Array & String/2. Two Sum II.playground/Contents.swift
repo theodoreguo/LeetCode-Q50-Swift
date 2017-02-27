@@ -26,7 +26,7 @@ class Solution {
     
     func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
         for i in 0..<numbers.count {
-            let j = binarySearch(numbers, target - numbers[i],  i + 1)
+            let j = binarySearch(numbers, target - numbers[i], i + 1)
             if (j != -1) {
                 return  [i + 1, j + 1]
             }
@@ -38,10 +38,8 @@ class Solution {
 /**
  O(n) runtime, O(1) space – Tow pointers
  Let’s assume we have two indices pointing to the ith and jth elements, Ai and Aj respectively. The sum of Ai and Aj could only fall into one of these three possibilities:
- i. Ai + Aj > target. Increasing i isn’t going to help us, as it makes the sum even
- bigger. Therefore we should decrement j.
- ii. Ai + Aj < target. Decreasing j isn’t going to help us, as it makes the sum even
- smaller. Therefore we should increment i.
+ i. Ai + Aj > target. Increasing i isn’t going to help us, as it makes the sum even bigger. Therefore we should decrement j.
+ ii. Ai + Aj < target. Decreasing j isn’t going to help us, as it makes the sum even smaller. Therefore we should increment i.
  iii. Ai + Aj == target. We have found the answer.
  */
 class Solution2 {
