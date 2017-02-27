@@ -11,15 +11,17 @@ import Foundation
 class Solution {
     private func binarySearch(_ a: [Int], _ key: Int, _ start: Int) -> Int {
         var l = start, r = a.count - 1
-        while l < r {
+        while l <= r {
             let m = (l + r) / 2
             if a[m] < key {
                 l = m + 1
+            } else if a[m] > key {
+                r = m - 1
             } else {
-                r = m
+                return m
             }
         }
-        return (l == r && a[l] == key) ? l : -1
+        return -1
     }
     
     func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
