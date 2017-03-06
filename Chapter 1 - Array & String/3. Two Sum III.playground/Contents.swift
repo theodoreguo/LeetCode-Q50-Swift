@@ -42,5 +42,5 @@ for i in 0...5 {
 }
 obj.add(4)
 obj.add(7)
-print(obj.dict)
+obj.dict
 var res: Bool = obj.find(8)
