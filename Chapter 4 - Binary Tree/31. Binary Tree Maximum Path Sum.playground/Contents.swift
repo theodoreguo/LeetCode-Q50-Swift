@@ -76,7 +76,7 @@ class Solution {
         let left = findMax(p?.left)
         let right = findMax(p?.right)
         maxSum = max((p?.val)! + left + right, maxSum!)
-        let ret = (p?.val)! + max(left, right)
-        return ret > 0 ? ret : 0
+        let res = (p?.val)! + max(left, right)
+        return res > 0 ? res : 0
     }
 }

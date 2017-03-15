@@ -19,7 +19,7 @@ import Foundation
  Consider the case where given string contains only non-alphanumeric characters. This is a valid palindrome because the empty string is also a valid palindrome.
  */
 class Solution {
-    func isPalindrome (_ s: String) -> Bool {
+    func isPalindrome(_ s: String) -> Bool {
         let chars = Array(s.lowercased().characters)
         var i = 0
         var j = chars.count - 1

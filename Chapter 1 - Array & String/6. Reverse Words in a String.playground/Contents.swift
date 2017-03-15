@@ -34,7 +34,7 @@ class Solution {
         reverseWords(&chars, len)
         
         // Trim leading, trailing and multiple spaces
-        return String(chars).replacingOccurrences(of: "^\\s+|\\s+$|\\s+(?=\\s)", with: "", options: NSString.CompareOptions.regularExpression, range: nil) // ^\s+ and \s+$ match one or more white space characters at the start/end of the string. The tricky part is the \s+(?=\s) pattern, which matches one or more white space characters followed by another white space character which itself is not considered as part of the match (a "look-ahead assertion").
+        return String(chars).replacingOccurrences(of: "^\\s+|\\s+$|\\s+(?=\\s)", with: "", options: NSString.CompareOptions.regularExpression, range: nil) // ^\s+ and \s+$ match one or more white space characters at the start/end of the string. The tricky part is the \s+(?=\s) pattern, which matches one or more white space characters followed by another white space character which itself is not considered as part of the match (a "look-ahead assertion"). Deleting NSString.CompareOptions also works.
     }
     
     // Reverse the whole string
@@ -49,12 +49,11 @@ class Solution {
     // Reverse each word
     private func reverseWords(_ chars: inout Array<Character>, _ len: Int) {
         var i = 0
-        for var j in 0...len {
+        for j in 0...len {
             if j == len || chars[j] == " " {
                 reverseString(&chars, i, j)
                 i = j + 1
             }
-            j += 1
         }
     }
 }
