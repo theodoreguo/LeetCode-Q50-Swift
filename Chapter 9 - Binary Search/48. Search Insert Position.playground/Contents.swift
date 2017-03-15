@@ -34,10 +34,30 @@ class Solution {
     }
 }
 
+class Solution2 {
+    func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+        var l = 0, r = nums.count - 1
+        while l <= r {
+            let m = (l + r) / 2
+            if nums[m] < target {
+                l = m + 1
+            } else if nums[m] > target {
+                r = m - 1
+            } else {
+                return m
+            }
+        }
+        return nums.count // Appending after the last element.
+    }
+}
+
 let obj = Solution()
+let obj2 = Solution2()
 let a1 = [1, 3, 5, 6]
 let n1 = 7
 let a2 = [2, 3, 5, 9]
 let n2 = 3
 obj.searchInsert(a1, n1)
 obj.searchInsert(a2, n2)
+obj2.searchInsert(a1, n1)
+obj2.searchInsert(a2, n2)

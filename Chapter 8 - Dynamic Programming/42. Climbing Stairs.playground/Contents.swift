@@ -41,6 +41,10 @@ class Solution {
     }
 }
 
+/**
+ Set base cases f(1) = 1, f(2) = 2.
+ We can calculate f(n) easily by storing previous values in an one dimension array and work our way up to n. Heck, we can even optimize this further by storing just the previous two values.
+ */
 class Solution2 {
     public func climbStairs(_ n: Int) -> Int {
         if n == 1 {

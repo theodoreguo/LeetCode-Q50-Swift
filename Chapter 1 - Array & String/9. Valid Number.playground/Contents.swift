@@ -26,7 +26,7 @@ import Foundation
 
 class Solution {
     func isNumber(_ s: String) -> Bool {
-        var str = s.replacingOccurrences(of: "^\\s+|\\s+$", with: "", options: NSString.CompareOptions.regularExpression, range: nil) // ^\s+ and \s+$ match one or more white space characters at the start/end of the string
+        var str = s.replacingOccurrences(of: "^\\s+|\\s+$", with: "", options: .regularExpression, range: nil) // ^\s+ and \s+$ match one or more white space characters at the start/end of the string. .regularExpression represents NSString.CompareOptions.regularExpression
         let chars = Array(str.characters)
         var numberSeen = false
         var pointSeen = false
