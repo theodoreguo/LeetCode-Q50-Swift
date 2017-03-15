@@ -17,6 +17,13 @@
   / \
  2   3
  Binary tree [1,2,3], return false.
+ Example 3:
+  10
+  / \
+ 5  15
+    / \
+   6   20
+ It’s obvious that this is not a valid BST, since (6) could never be on the right of (10).
  
  Link: https://oj.leetcode.com/problems/validate-binary-search-tree/
  */
@@ -52,4 +59,3 @@ class Solution {
             && valid(p.right, p.val, high)
     }
 }
-
