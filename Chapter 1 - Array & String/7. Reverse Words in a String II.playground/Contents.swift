@@ -13,12 +13,11 @@ class Solution {
         let len = chars.count
         reverse(&chars, 0, len)
         var i = 0
-        for var j in 0...len {
+        for j in 0...len {
             if j == len || chars[j] == " " {
                 reverse(&chars, i, j)
                 i = j + 1
             }
-            j += 1
         }
         return String(chars)
     }
