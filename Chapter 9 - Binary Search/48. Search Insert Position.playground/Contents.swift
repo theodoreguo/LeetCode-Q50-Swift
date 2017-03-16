@@ -47,7 +47,7 @@ class Solution2 {
                 return m
             }
         }
-        return nums.count // Appending after the last element.
+        return nums.count // The postion is to append after the last element.
     }
 }
 
