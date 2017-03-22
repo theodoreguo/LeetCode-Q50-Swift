@@ -22,12 +22,12 @@ class Solution {
             div *= 10
         }
         while x != 0 {
-            let l = x / div
-            let r = x % 10
+            let l = x / div // Get the most left digit
+            let r = x % 10  // Get the most right digit
             if l != r {
                 return false
             }
-            x = (x % div) / 10 // Chop off one digit from both ends
+            x = (x % div) / 10 // Chop off one digit from both ends (chop left digit and then right one)
             div /= 100
         }
         return true
