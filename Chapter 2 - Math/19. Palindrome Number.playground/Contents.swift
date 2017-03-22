@@ -27,7 +27,7 @@ class Solution {
             if l != r {
                 return false
             }
-            x = (x % div) / 10 // Chop off one digit from both ends (chop left digit and then right one)
+            x = (x % div) / 10 // Chop off one digit from both ends (chop left end digit and then right one)
             div /= 100
         }
         return true
