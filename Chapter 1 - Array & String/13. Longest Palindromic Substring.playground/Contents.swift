@@ -52,7 +52,7 @@ class Solution {
         let len = sChars.count
         var maxLen = 1
         var maxStart = 0
-        var isPalin = Array(repeating: Array(repeating: false, count : len), count : len)
+        var isPalin = Array(repeating: Array(repeating: false, count: len), count: len)
         
         for i in 0 ... len - 1 {
             isPalin[i][i] = true
